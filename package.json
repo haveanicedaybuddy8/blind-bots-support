@@ -1,7 +1,7 @@
 {
   "name": "blind-bots-support",
   "version": "1.0.0",
-  "type":"main",
+  "type":"module",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
     "@supabase/supabase-js": "^2.89.0",
