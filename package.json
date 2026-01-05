@@ -1,7 +1,7 @@
 {
   "name": "blind-bots-support",
   "version": "1.0.0",
-  "type":"module",
+  "type":"main",
   "description": "",
   "main": "index.js",
   "scripts": {
