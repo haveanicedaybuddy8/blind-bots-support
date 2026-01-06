@@ -82,7 +82,7 @@ export async function processChat(history, userInput, currentData) {
         const result = await chat.sendMessage(userParts);
         const text = result.response.text();
         const cleanText = text.replace(/```json|```/g, '').trim();
-        return JSON.parse(cleantext);
+        return JSON.parse(cleanText);
     } catch (err) {
         console.error("AI Engine Error:", err);
         return { 
