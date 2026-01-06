@@ -126,11 +126,9 @@ ${JSON.stringify(ticketData.chat_history, null, 2)}
         const { data, error } = await resend.emails.send({
             // IMPORTANT: If you haven't verified 'theblindbots.com' in Resend yet,
             // you MUST change this to: 'onboarding@resend.dev'
-            from: 'Blind Bot Support <onboarding@resend.dev>', 
+            from: 'Blind Bot Support <rob@support.theblindbots.com>', 
             
-            // Your receiving email
             to: ['rob.wen@theblindbots.com'], 
-            
             subject: `Ticket: ${ticketData.business_name} - ${ticketData.issue_summary}`,
             html: htmlBody,
             attachments: attachments
