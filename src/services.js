@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 import dotenv from 'dotenv';
 
 // Load environment variables from the parent .env file
@@ -7,16 +7,7 @@ dotenv.config();
 
 // --- CONFIGURATION ---
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
-
-const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: 587,
-    secure: false,
-    auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS
-    }
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 /**
  * 1. UPLOAD IMAGE
@@ -65,12 +56,12 @@ export async function saveTicketToDB(ticketData) {
         const { error } = await supabase
             .from('support_tickets')
             .insert({
-                user_email: ticketData.main_email,       // Required by your original schema
+                user_email: ticketData.main_email,       
                 registration_email: ticketData.reg_email,
                 business_name: ticketData.business_name,
                 phone: ticketData.phone,
                 issue_summary: ticketData.issue_summary,
-                full_chat_log: JSON.stringify(ticketData.chat_history), // Save full context
+                full_chat_log: JSON.stringify(ticketData.chat_history), 
                 attachment_url: ticketData.attachment_url || null
             });
 
@@ -85,7 +76,7 @@ export async function saveTicketToDB(ticketData) {
 }
 
 /**
- * 3. EMAIL ALERT
+ * 3. EMAIL ALERT (Using Resend)
  * Sends the formatted email to you with the attachment.
  */
 export async function emailRob(ticketData) {
@@ -125,27 +116,35 @@ ${JSON.stringify(ticketData.chat_history, null, 2)}
     </div>
     `;
 
-    // Construct the email object
-    const mailOptions = {
-        from: `"Blind Bot Support" <${process.env.SMTP_USER}>`,
-        to: "rob.wen@theblindbots.com",
-        subject: `Ticket: ${ticketData.business_name} - ${ticketData.issue_summary}`,
-        html: htmlBody
-    };
-
-    // If there is an image URL, we can also attach it directly as a file so you don't have to click the link
-    if (ticketData.attachment_url) {
-        mailOptions.attachments = [{
-            path: ticketData.attachment_url 
-        }];
-    }
+    // Prepare attachments array if an image exists
+    const attachments = ticketData.attachment_url ? [{
+        filename: 'screenshot.png',
+        path: ticketData.attachment_url
+    }] : [];
 
     try {
-        await transporter.sendMail(mailOptions);
-        console.log("✅ Email sent successfully.");
+        const { data, error } = await resend.emails.send({
+            // IMPORTANT: If you haven't verified 'theblindbots.com' in Resend yet,
+            // you MUST change this to: 'onboarding@resend.dev'
+            from: 'Blind Bot Support <onboarding@resend.dev>', 
+            
+            // Your receiving email
+            to: ['rob.wen@theblindbots.com'], 
+            
+            subject: `Ticket: ${ticketData.business_name} - ${ticketData.issue_summary}`,
+            html: htmlBody,
+            attachments: attachments
+        });
+
+        if (error) {
+            console.error("❌ Resend API Error:", error);
+            return false;
+        }
+
+        console.log("✅ Email sent successfully:", data);
         return true;
     } catch (err) {
-        console.error("❌ Email Failed:", err.message);
+        console.error("❌ Email Execution Failed:", err.message);
         return false;
     }
 }
