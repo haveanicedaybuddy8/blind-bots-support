@@ -1,0 +1,23 @@
+PRICING & SUBSCRIPTION MODEL
+
+1. CORE SUBSCRIPTION: "Premium AI Chatbot"
+   - Price: $189 USD per month.
+   - Target Audience: Solo blind makers, blinds workshops, and window treatment retailers.
+   - What is included:
+     * Fully customized AI Sales Bot trained on your specific company data.
+     * Unlimited text chatting with customers (Chatting does NOT cost credits).
+     * SSL Security for data protection.
+     * Automated Lead Forwarding (Transcripts sent to your email).
+     * 100 Image Generation Credits included every month (Refills automatically on renewal).
+
+2. ADD-ON: "Image Credits"
+   - Price: $100 USD for a pack of 300 Credits.
+   - Usage: 
+     * 1 Credit = 1 AI Window Rendering (Visualizing blinds on a customer's photo).
+     * Chatting, answering questions, and lead capture are free and unlimited. Credits are ONLY deducted when the AI successfully generates a visual preview.
+   - Expiration: These credits do NOT expire. They roll over until used.
+   - Note: You must ensure the email used at checkout matches your account email for credits to apply instantly.
+
+3. BILLING LOGIC
+   - Subscription Status: The service requires an "Active" subscription. If a subscription fails or is canceled, the bot will display a "Service Suspended" message.
+   - Auto-Refill (Optional): Accounts can be set to auto-replenish credits when the balance drops below 5.

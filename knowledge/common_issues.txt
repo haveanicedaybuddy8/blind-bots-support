@@ -1,0 +1,34 @@
+TROUBLESHOOTING & COMMON ISSUES
+
+ISSUE: Chatbot is not responding (Bubble opens, but no reply)
+- Cause 1: Inactive Subscription.
+  Logic: The server checks the database status before replying. If status is not 'active', it returns "Service Suspended."
+  Fix: Check if the monthly payment went through.
+- Cause 2: Invalid API Key.
+  Logic: The script tag on the website might have a typo in the `data-api-key`.
+  Fix: Re-copy the code snippet from the dashboard and reinstall it.
+
+ISSUE: Chatbot won't generate an image (Visualization failed)
+- Cause 1: Insufficient Credits.
+  Logic: The system checks credit balance before generation. If credits <= 0, it blocks the request.
+  Fix: Purchase a credit pack ($100 for 300 credits)/turn on auto replenish in manage membership tab
+
+
+ISSUE: Chatbot ignores company policies or discounts
+- Cause: Training Data Lag or Conflict.
+  Logic: The "Persona Worker" updates the AI's brain every 10-60 seconds. If a PDF was just uploaded, it might take a minute to process.
+  Fix:
+  1. Wait 60 seconds after updating settings.
+  2. Check "Owner Instructions" in the dashboard. These instructions override the PDF. If the PDF says "10% off" but Owner Instructions say "No discounts," the AI will refuse discounts.
+
+ISSUE: Widget not showing up on the website
+- Cause 1: Caching.
+  Logic: The browser is loading an old version of the site without the new code.
+  Fix: Open the site in Incognito/Private mode.
+- Cause 2: Z-Index Conflict.
+  Logic: Another element on the website (like a footer banner) is covering the chat bubble.
+  Fix: The widget uses z-index: 999999. Ensure no other element has a higher value, or move the widget side margins in the settings.
+
+ISSUE: "PDF is empty" or AI doesn't know company info
+- Cause: The uploaded PDF contains images of text (scanned docs) rather than selectable text.
+- Fix: The system uses visual analysis (OCR), but high-quality text PDFs work best. Ensure the PDF is readable and not password protected.

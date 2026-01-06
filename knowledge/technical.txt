@@ -1,0 +1,111 @@
+TECHNICAL INSTALLATION GUIDE
+
+OVERVIEW
+To install the AI Sales Assistant, you must inject a specific Javascript snippet into the global footer of your website. This ensures the chat widget appears on every page and functions correctly across your entire domain.
+
+THE CODE SNIPPET
+Copy the following line of code exactly. Replace "YOUR_UNIQUE_API_KEY" with the key provided in your dashboard.
+
+<script src="https://blind-bot-server.onrender.com/widget.js" data-api-key="YOUR_UNIQUE_API_KEY" async></script>
+
+*** CRITICAL: SITEWIDE ADOPTION ***
+For the bot to work effectively, this code must be active on your ENTIRE DOMAIN (e.g., www.yourblindstore.com), not just a specific landing page or subdomain.
+- Why? If a customer navigates from your "Home" page to your "Gallery" page, the chat session must persist. If the code is missing on the Gallery page, the chat will disappear, and the lead may be lost.
+- Action: Always place the code in a "Global" footer or header setting that applies to every single page automatically.
+
+--------------------------------------------------
+PLATFORM-SPECIFIC INSTALLATION GUIDES
+--------------------------------------------------
+
+1. WEEBLY
+   - Location: Settings > SEO > Footer Code
+   - Instructions:
+     1. Log in to your Weebly Editor.
+     2. Click "Settings" in the top navigation bar.
+     3. Select "SEO" from the left-hand menu.
+     4. Scroll down to the "Footer Code" text box.
+     5. Paste the snippet there.
+     6. Click "Save" and then "Publish" your site.
+   - Note: This setting automatically covers all pages on the site.
+
+2. WIX
+   - Location: Settings > Custom Code > Body - End
+   - Instructions:
+     1. Go to your Wix Dashboard.
+     2. Navigate to "Settings" (at the bottom left) -> "Custom Code" (under the Advanced section).
+     3. Click "+ Add Custom Code".
+     4. Paste the snippet in the code box.
+     5. Name it "AI Chat Widget".
+     6. Under "Add Code to Pages", select "All Pages" (Critical).
+     7. Under "Place Code in", select "Body - End".
+     8. Click "Apply".
+
+3. SQUARESPACE
+   - Location: Settings > Advanced > Code Injection > Footer
+   - Instructions:
+     1. Go to your Main Menu -> Website -> Website Tools -> Code Injection.
+     2. Scroll down to the box labeled "Footer".
+     3. Paste the snippet there.
+     4. Click "Save" at the top left.
+   - Note: This feature requires a Business or Commerce plan.
+
+4. SHOPIFY
+   - Location: Online Store > Themes > Edit Code > theme.liquid
+   - Instructions:
+     1. Go to your Shopify Admin -> Online Store -> Themes.
+     2. Click the three dots (...) next to your current theme and select "Edit code".
+     3. In the file list, find and click "theme.liquid".
+     4. Scroll to the very bottom of the code editor.
+     5. Paste the snippet immediately before the closing </body> tag.
+     6. Click "Save".
+
+5. WORDPRESS
+   - Option A (Recommended - Plugin):
+     1. Install the free plugin "WPCode" or "Insert Headers and Footers".
+     2. Go to "Code Snippets" -> "Header & Footer".
+     3. Paste the snippet into the "Footer" box.
+     4. Click "Save Changes".
+   - Option B (Manual - Theme Editor):
+     1. Go to Appearance -> Theme File Editor.
+     2. Find "Theme Footer" (footer.php) in the right sidebar.
+     3. Paste the snippet immediately before the closing </body> tag.
+     4. Click "Update File".
+
+6. WEBFLOW
+   - Location: Project Settings > Custom Code > Footer Code
+   - Instructions:
+     1. Open your Webflow Dashboard and go to "Project Settings" for your site.
+     2. Click the "Custom Code" tab.
+     3. Scroll to the "Footer Code" section.
+     4. Paste the snippet there.
+     5. Click "Save Changes".
+     6. IMPORTANT: You must "Publish" your site for the code to go live.
+
+7. GODADDY
+   - Location: Edit Site > Add Section > HTML
+   - Instructions:
+     1. Open the Website Builder.
+     2. Scroll to the bottom of your home page (the Footer area).
+     3. Click "Add Section".
+     4. Search for "HTML" or "Embed Code" and add it.
+     5. Paste the snippet into the code box.
+     6. Ensure this section is part of the global footer so it appears on all pages.
+     7. Click "Publish".
+
+8. GOOGLE SITES
+   - Location: Embed > Embed Code
+   - Instructions:
+     1. Open your site editor.
+     2. Scroll to the bottom of the page.
+     3. Hover over the footer area until "Edit Footer" appears. Click it.
+     4. On the right menu, select "Embed" -> "Embed Code".
+     5. Paste the snippet and click "Next" -> "Insert".
+     6. Resize the placeholder to be small/invisible if needed (the widget floats automatically).
+     7. Because it is in the footer, it will apply globally.
+
+--------------------------------------------------
+VERIFYING INSTALLATION
+--------------------------------------------------
+1. Open Incognito Mode: Open your website in a private/incognito window to ensure you aren't viewing an old cached version.
+2. Check the Corner: Look for the chat bubble in the bottom right corner.
+3. Test Navigation: Click to a different page (e.g., from Home to About Us). The chat bubble should remain visible.
