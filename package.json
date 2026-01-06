@@ -1,7 +1,7 @@
 {
   "name": "blind-bots-support",
   "version": "1.0.0",
-  "type":"module",
+  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -16,6 +16,7 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
-    "nodemailer": "^7.0.12"
+    "nodemailer": "^7.0.12",
+    "resend": "^6.6.0"
   }
 }
